@@ -5,21 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.26.1] - 2022-01-14
+## [2.26.1] - 2022-01-19
 
 ### Fixed
 - Added additional pausing of `MonitorTask` and `ReceiveVideoStreamIndexTask` to avoid modifying mutable state mid-subscribe
 - Fixed delays in advertising simulcast stream switches due to asynchronous and out of order checks
 
 ### Added
-    
+
 ### Removed
 
 ## [2.26.0] - 2022-01-14
 
 ### Changed
 - Made `SimulcastUplinkObserver.encodingSimulcastLayersDidChange` (*not* `AudioVideoObserver.encodingSimulcastLayersDidChange`) synchronous.
-    
+
 ### Fixed
 - Fixed delays in advertising simulcast stream switches due to asynchronous and out of order checks
 
@@ -39,7 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.24.0] - 2021-12-17
 ### Added
-- Add `supportDownlinkBandwidthEstimation` API to check whether browsers support downlink bandwidth estimation 
+- Add `supportDownlinkBandwidthEstimation` API to check whether browsers support downlink bandwidth estimation
   which requires for priority based downlink policy to work.
 - Add `keepLastFrameWhenPaused` in `DefaultVideoTile` as an option to keep last frame when pausing a video tile.
 - Add error name for custom device controller error.
@@ -87,8 +87,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Fix priority downlink policy bandwidth estimation metrics to work with Safari.
 - Add a workaround to switch to VP8 for iOS 15.1 due to [Safari bug](https://bugs.webkit.org/show_bug.cgi?id=232416) that causes crash with H.264 encoding.
-- Add a workaround to switch to VP8 for iOS 15.1 due to [Safari bug](https://bugs.webkit.org/show_bug.cgi?id=232416) 
-  for iOS WebView that causes crash with H.264 encoding.  
+- Add a workaround to switch to VP8 for iOS 15.1 due to [Safari bug](https://bugs.webkit.org/show_bug.cgi?id=232416)
+  for iOS WebView that causes crash with H.264 encoding.
 - Make `tileWillBePausedByDownlinkPolicy` observer update synchronous without `setTimeout`.
 
 ### Changed
@@ -138,7 +138,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Prevent error `'scaleResolutionDownBy' member of RTCRtpEncodingParameters is not a finite floating-point value` 
+- Prevent error `'scaleResolutionDownBy' member of RTCRtpEncodingParameters is not a finite floating-point value`
   thrown by NScale video uplink bandwidth policy when there is no height information from the sending video stream.
 
 ## [2.20.0] - 2021-10-18
@@ -161,7 +161,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add `bindToTileController` optional method to `VideoDownlinkBandwidthPolicy`.
 - Add [Content Security Policy](https://aws.github.io/amazon-chime-sdk-js/modules/contentsecurity_policy.html) setup guide for customers who want to secure their application and add CSP headers.
 - Add `securitypolicyviolation` event listener to listen for CSP violations. If customers have set up CSP for their app, the event listener will detect violations and print warnings.
-  
+
 ### Removed
 
 - Remove Getting Started documentation guide and use [API overview](https://aws.github.io/amazon-chime-sdk-js/modules/apioverview.html) to cover the development in more details.
@@ -176,7 +176,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix bug: DOMException: The play() request was interrupted by a new load request. https://goo.gl/LdLk22.
 - Fix `removeObserver` function in `DefaultVideoTransformDevice`.
 - Fix handling pausing when using default preference for priority-based video bandwidth policy.
-- Bind tile controller for any downlink policy that implements `bindToTileController` such as 
+- Bind tile controller for any downlink policy that implements `bindToTileController` such as
   `VideoAdaptiveProbePolicy`.
 - Do not pause streams that do not exist in conference in `VideoPriorityBasedPolicy`.
 
@@ -190,12 +190,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Refactor some types to avoid a circular dependency (#1565).
 - Update package.json to include npm 8.
 - Update mocha to version 9.
-  
+
 ## [2.18.0] - 2021-09-22
 
 ### Added
 
-- Add events `meetingReconnected`, `signalingDropped` and `receivingAudioDropped` to `eventDidReceive` by publishing them as stand alone events. Currently, these events were only included in the meeting history attribute when a meeting event is published. 
+- Add events `meetingReconnected`, `signalingDropped` and `receivingAudioDropped` to `eventDidReceive` by publishing them as stand alone events. Currently, these events were only included in the meeting history attribute when a meeting event is published.
 - Added support for skipping full SDP renegotiations when switching simulcast streams.  This will result in less freezing when switching between layers in response to a network event as done in `VideoPriorityBasedPolicy`.  This will have no impact if not using simulcast.
 - Add link to SIP Media Application examples in README.
 
@@ -231,7 +231,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Clarify why not use default downlink policy with simulcast.
 - Corrected argument `isUnifiedPlan` in `withBandwidthRestriction` to `isFirefox`. Also marked as deprecated since we no longer use it.
 - Update data message limit in the API Overview guide.
-- Do not trigger real time attendee presence event for local attendee if they are not appear in audio info frame 
+- Do not trigger real time attendee presence event for local attendee if they are not appear in audio info frame
   during reconnection.
 - Update `startVideoPreviewForVideoInput` to support filters in the preview window.
 - Update browser demo to showcase preview filter capability.
@@ -244,7 +244,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix simulcast guide that adaptive probe downlink policy is not enabled by default.
 - Fix a link format in simulcast guide.
 - No longer put useless 'pin' and 'pause' buttons on local tile in demo.
-- Choose a null device or media stream without a deviceId without first listing devices no longer logs `Device cache 
+- Choose a null device or media stream without a deviceId without first listing devices no longer logs `Device cache
   is not populated`.
 
 ## [2.16.1] - 2021-08-23
@@ -272,7 +272,7 @@ of videos.
 
 ## [2.15.0] - 2021-08-04
 
-### Added 
+### Added
 
 - Supports integration with Amazon Transcribe and Amazon Transcribe Medical for live transcription. The Amazon Chime Service uses its active talker algorithm to select the top two active talkers, and sends their audio to Amazon Transcribe (or Amazon Transcribe Medical) in your AWS account. User-attributed transcriptions are then sent directly to every meeting attendee via data messages. Use transcriptions to overlay subtitles, build a transcript, or perform real-time content analysis. For more information, visit [the live transcription guide](https://docs.aws.amazon.com/chime/latest/dg/meeting-transcription.html).
 - [Demo] Add live transcription functionality. You will need to have a serverless deployment to create new AWS Lambda endpoints for live transcription. Follow [the live transcription guide](https://docs.aws.amazon.com/chime/latest/dg/meeting-transcription.html) to create necessary service-linked role so that the demo app can call Amazon Transcribe and Amazon Transcribe Medical on your behalf.
@@ -367,7 +367,7 @@ of videos.
 ### Added
 
 - Bind tileController during the initialization of DefaultAudioVideoController for VideoPriorityBasedPolicy.
-- Add more debug logging for choose input device. 
+- Add more debug logging for choose input device.
 - Add the meeting and device error sections in the meeting-event guide.
 - Add a `forceUpdate` parameter to use when listing devices. In some cases, builders
   need to delay the triggering of permission dialogs, _e.g._, when joining a
